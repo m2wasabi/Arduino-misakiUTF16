@@ -12,7 +12,12 @@
 #ifndef misakiUTF16_h
 #define misakiUTF16_h
 
-#include <avr/pgmspace.h>
+#if defined(ESP8266) || defined(ESP32) || defined(ESP31B)
+  #include <pgmspace.h>
+#else
+  #include <avr/pgmspace.h>
+#endif
+
 #include <arduino.h>
 
 #define FTABLESIZE     1710      // フォントテーブルデータサイズ
